@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <title>Lottery Generator</title>
+
+    <!-- PWA -->
+    <link rel="manifest" href="manifest.json" />
+    <meta name="theme-color" content="#0b1020" />
+
+    <!-- iOS “Add to Home Screen” -->
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <link rel="apple-touch-icon" href="icons/apple-touch-icon.png" />
+
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="app">
+      <header class="header">
+        <div>
+          <h1>Lottery Ticket Generator</h1>
+          <p class="sub">Generate Powerball or Mega Millions picks instantly (for fun).</p>
+        </div>
+        <div class="badge">PWA</div>
+      </header>
+
+      <section class="card controls">
+        <div class="row">
+          <label class="label">Lottery</label>
+          <div class="segmented" role="group" aria-label="Lottery selection">
+            <button class="seg active" data-lottery="powerball">Powerball</button>
+            <button class="seg" data-lottery="megamillions">Mega Millions</button>
+          </div>
+        </div>
+
+        <div class="row grid2">
+          <div>
+            <label class="label" for="count">Tickets to generate</label>
+
+            <div class="quickRow">
+              <span class="quickLabel">Quick Pick</span>
+              <div class="quickPills" role="group" aria-label="Quick pick presets">
+                <button class="pill" data-quick="1">1</button>
+                <button class="pill active" data-quick="5">5</button>
+                <button class="pill" data-quick="10">10</button>
+                <button class="pill" data-quick="20">20</button>
+              </div>
+            </div>
+
+            <div class="countWrap">
+              <button class="step" id="minus">−</button>
+              <input id="count" type="number" min="1" max="50" value="5" inputmode="numeric" />
+              <button class="step" id="plus">+</button>
+            </div>
+
+            <div class="hint">1–50 per batch • duplicates in batch are prevented</div>
+          </div>
+
+          <div>
+            <label class="label">Options</label>
+            <label class="check">
+              <input id="noDupes" type="checkbox" checked />
+              Ensure main numbers are unique
+            </label>
+            <label class="check">
+              <input id="sortMain" type="checkbox" checked />
+              Sort main numbers ascending
+            </label>
+          </div>
+        </div>
+
+        <div class="actions">
+          <button class="btn primary" id="generate">Generate Tickets</button>
+          <button class="btn" id="copy" disabled>Copy Results</button>
+          <button class="btn danger" id="clear" disabled>Clear</button>
+        </div>
+      </section>
+
+      <section class="card results">
+        <div class="resultsHeader">
+          <h2>Results</h2>
+          <div class="meta" id="meta">No tickets yet.</div>
+        </div>
+
+        <div id="list" class="list"></div>
+
+        <footer class="footnote">
+          <span>Note: This is a random generator. It does not improve your odds.</span>
+        </footer>
+      </section>
+    </div>
+
+    <script src="app.js"></script>
+    <script>
+      // Register service worker (PWA offline/app-like)
+      if ("serviceWorker" in navigator) {
+        window.addEventListener("load", () => {
+          navigator.serviceWorker.register("./sw.js").catch(console.error);
+        });
+      }
+    </script>
+  </body>
+</html>

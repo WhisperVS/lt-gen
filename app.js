@@ -1,7 +1,7 @@
 window.addEventListener("DOMContentLoaded", () => {
   const RULES = {
     powerball: { name: "Powerball", main: [1, 69], mainCount: 5, bonus: [1, 26], bonusName: "Powerball" },
-    megamillions: { name: "Mega Millions", main: [1, 70], mainCount: 5, bonus: [1, 25], bonusName: "Mega Ball" }
+    megamillions: { name: "Mega Millions", main: [1, 70], mainCount: 5, bonus: [1, 24], bonusName: "Mega Ball" }
   };
 
   let currentLottery = "powerball";
@@ -221,3 +221,4 @@ window.addEventListener("DOMContentLoaded", () => {
   renderMeta();
   syncQuickPickHighlight();
 });
+

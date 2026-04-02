@@ -1,0 +1,32 @@
+{
+  "name": "lottery-generator",
+  "version": "1.1.0",
+  "main": "main.js",
+  "private": true,
+  "scripts": {
+    "start": "electron .",
+    "dist": "electron-builder -w zip"
+  },
+  "devDependencies": {
+    "electron": "^30.0.0",
+    "electron-builder": "^24.0.0"
+  },
+  "build": {
+    "appId": "com.example.lotterygenerator",
+    "productName": "Lottery Generator",
+    "directories": {
+      "output": "dist"
+    },
+    "files": [
+      "main.js",
+      "index.html",
+      "style.css",
+      "renderer.js"
+    ],
+    "win": {
+      "target": [
+        "zip"
+      ]
+    }
+  }
+}

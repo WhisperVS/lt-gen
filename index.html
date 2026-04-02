@@ -73,8 +73,78 @@
 
         <div class="actions">
           <button class="btn primary" id="generate">Generate Tickets</button>
+          <button class="btn smart" id="smartPick">Smart Pick</button>
           <button class="btn" id="copy" disabled>Copy Results</button>
           <button class="btn danger" id="clear" disabled>Clear</button>
+        </div>
+      </section>
+
+      <!-- Smart Analysis Card -->
+      <section class="card analysisCard" id="analysisCard">
+        <div class="analysisHeader">
+          <div>
+            <div class="analysisTitleRow">
+              <h2 class="analysisTitle">Smart Analysis</h2>
+              <span class="analysisBadge" id="analysisBadge">Powerball</span>
+            </div>
+            <div class="analysisMeta" id="analysisMeta">Frequency analysis of historical draws to find hot &amp; cold numbers.</div>
+          </div>
+          <button class="btn" id="loadAnalysisBtn">Load Data</button>
+        </div>
+
+        <div id="analysisIdle" class="analysisStatus">
+          Click <strong>Load Data</strong> above or <strong>Smart Pick</strong> to fetch real historical results and find the most frequent numbers.
+        </div>
+
+        <div id="analysisLoading" class="analysisStatus hidden">
+          <div class="spinner"></div>
+          <span>Fetching historical draws from NY Open Data&hellip;</span>
+        </div>
+
+        <div id="analysisError" class="analysisStatus analysisError hidden"></div>
+
+        <div id="analysisResults" class="hidden">
+          <div class="statsRow">
+            <div class="statBox">
+              <div class="statVal" id="statDraws">&ndash;</div>
+              <div class="statLbl">Draws Analyzed</div>
+            </div>
+            <div class="statBox">
+              <div class="statVal" id="statFrom">&ndash;</div>
+              <div class="statLbl">Earliest Draw</div>
+            </div>
+            <div class="statBox">
+              <div class="statVal" id="statTo">&ndash;</div>
+              <div class="statLbl">Latest Draw</div>
+            </div>
+          </div>
+
+          <div class="freqGrid">
+            <div class="freqSection">
+              <div class="freqTitle hot">&#x1F525; Hot Main Numbers <span class="freqNote">(top 10 most drawn)</span></div>
+              <div class="freqBalls" id="hotMain"></div>
+            </div>
+            <div class="freqSection">
+              <div class="freqTitle cold">&#x2744;&#xFE0F; Due Main Numbers <span class="freqNote">(10 least drawn)</span></div>
+              <div class="freqBalls" id="coldMain"></div>
+            </div>
+          </div>
+
+          <div class="freqGrid freqGridBonus">
+            <div class="freqSection">
+              <div class="freqTitle hot" id="hotBonusTitle">&#x1F525; Hot Powerball <span class="freqNote">(top 5)</span></div>
+              <div class="freqBalls" id="hotBonus"></div>
+            </div>
+            <div class="freqSection">
+              <div class="freqTitle cold" id="coldBonusTitle">&#x2744;&#xFE0F; Due Powerball <span class="freqNote">(bottom 5)</span></div>
+              <div class="freqBalls" id="coldBonus"></div>
+            </div>
+          </div>
+
+          <div class="analysisFootnote">
+            Smart Pick uses weighted random selection — numbers drawn more often get a higher (but not guaranteed) chance of appearing.
+            Lottery outcomes are independent; past frequency does <em>not</em> predict future results.
+          </div>
         </div>
       </section>
 

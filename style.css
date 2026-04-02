@@ -400,3 +400,186 @@ h1{
   background: rgba(124,92,255,.22);
   color: rgba(234,240,255,1);
 }
+
+/* ===============================
+   SMART PICK BUTTON
+   =============================== */
+
+.btn.smart{
+  background: linear-gradient(180deg, rgba(46,233,166,.40), rgba(46,233,166,.18));
+  border-color: rgba(46,233,166,.55);
+}
+.btn.smart:hover{
+  background: linear-gradient(180deg, rgba(46,233,166,.52), rgba(46,233,166,.28));
+}
+
+/* Smart tag on ticket row */
+.tag.smartTag{
+  border-color: rgba(46,233,166,.55);
+  background: rgba(46,233,166,.12);
+  color: rgba(46,233,166,.95);
+}
+
+/* ===============================
+   SMART ANALYSIS CARD
+   =============================== */
+
+.analysisCard .analysisHeader{
+  display:flex;
+  justify-content:space-between;
+  align-items:flex-start;
+  gap:12px;
+  margin-bottom:14px;
+}
+
+.analysisTitleRow{
+  display:flex;
+  align-items:center;
+  gap:10px;
+}
+
+.analysisTitle{
+  margin:0;
+  font-size:18px;
+}
+
+.analysisBadge{
+  padding:4px 10px;
+  border-radius:999px;
+  border:1px solid rgba(46,233,166,.50);
+  background:rgba(46,233,166,.10);
+  color:rgba(46,233,166,.95);
+  font-size:12px;
+  font-weight:700;
+}
+
+.analysisMeta{
+  color:var(--muted2);
+  font-size:13px;
+  margin-top:4px;
+}
+
+/* State panels */
+.analysisStatus{
+  color:var(--muted);
+  font-size:14px;
+  display:flex;
+  align-items:center;
+  gap:10px;
+  padding:10px 0;
+}
+.analysisStatus strong{ color:var(--text); }
+.analysisError{ color: var(--danger) !important; }
+.hidden{ display:none !important; }
+
+/* Spinner */
+.spinner{
+  width:20px;
+  height:20px;
+  border:2px solid rgba(255,255,255,.15);
+  border-top-color: var(--accent2);
+  border-radius:50%;
+  flex-shrink:0;
+  animation: spin .8s linear infinite;
+}
+@keyframes spin{ to{ transform:rotate(360deg) } }
+
+/* Stats row */
+.statsRow{
+  display:flex;
+  gap:12px;
+  flex-wrap:wrap;
+  margin-bottom:18px;
+}
+
+.statBox{
+  flex:1;
+  min-width:100px;
+  background: rgba(0,0,0,.22);
+  border:1px solid var(--stroke);
+  border-radius:14px;
+  padding:12px 14px;
+}
+
+.statVal{
+  font-size:20px;
+  font-weight:800;
+  color:var(--text);
+}
+
+.statLbl{
+  font-size:11px;
+  color:var(--muted2);
+  margin-top:3px;
+}
+
+/* Frequency grid */
+.freqGrid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:14px;
+  margin-bottom:16px;
+}
+@media(max-width:600px){
+  .freqGrid{ grid-template-columns:1fr; }
+}
+
+.freqSection{}
+
+.freqTitle{
+  font-size:13px;
+  font-weight:700;
+  margin-bottom:10px;
+}
+.freqTitle.hot { color: #ff8c55; }
+.freqTitle.cold{ color: #5ab2ff; }
+.freqNote{ font-weight:400; color:var(--muted2); font-size:11px; }
+
+/* Frequency balls row */
+.freqBalls{
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
+}
+
+.freqBall{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:3px;
+}
+
+.freqPct{
+  font-size:10px;
+  color:var(--muted2);
+}
+
+/* Hot / cold colour overrides on the ball */
+.ball.hot{
+  background: linear-gradient(180deg, rgba(255,107,53,.38), rgba(255,107,53,.16));
+  border-color: rgba(255,107,53,.58);
+  color: #ffcca8;
+}
+.ball.cold{
+  background: linear-gradient(180deg, rgba(74,158,255,.38), rgba(74,158,255,.16));
+  border-color: rgba(74,158,255,.58);
+  color: #a8d4ff;
+}
+/* Keep bonus ring visible on hot/cold PB balls */
+.ball.hot.bonus{
+  outline: 2px solid rgba(255,107,53,.65);
+  background: linear-gradient(180deg, rgba(255,107,53,.38), rgba(255,107,53,.16));
+}
+.ball.cold.bonus{
+  outline: 2px solid rgba(74,158,255,.65);
+  background: linear-gradient(180deg, rgba(74,158,255,.38), rgba(74,158,255,.16));
+}
+
+.analysisFootnote{
+  margin-top:4px;
+  font-size:11px;
+  color:var(--muted2);
+  border-top:1px solid var(--stroke);
+  padding-top:10px;
+}
+
